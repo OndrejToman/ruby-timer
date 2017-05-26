@@ -9,6 +9,8 @@ class Input
   end
 
   def handele_input(input)
+    path = Dir.pwd
+    puts "You are here: #{path}"
     puts "You wrote #{input}"
   end
 end
