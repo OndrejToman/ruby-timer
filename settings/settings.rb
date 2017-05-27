@@ -14,7 +14,14 @@ class Settings
     # If all steps above are completed, run program.
 
     @config_file = FilesManager.new('settings/config.json')
-    first_config unless @config_file.exist?
+    if @config_file.exist?
+      my_hash = JSON.parse(@config_file.file)
+      @nickname = my_hash['name']
+      @language = my_hash['language']
+      @default_project = my_hash['def_project']
+    else
+      first_config
+    end
   end
 
   def first_config
@@ -26,12 +33,16 @@ class Settings
     puts 'Name your default project:'
     puts 'It can be something like: general, no-project, etc...'
     @default_project = gets.chomp
+    save_config
     first_hello
   end
 
   # Save new config to config file
   def save_config
-
+    hash = { name: @nickname, language: @language, def_project: @default_project }
+    open('settings/config.json', 'a') do |file|
+      file.puts JSON.generate(hash)
+    end
   end
 
   # Say hello for the 1st time!
