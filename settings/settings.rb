@@ -26,6 +26,16 @@ class Settings
     puts 'Name your default project:'
     puts 'It can be something like: general, no-project, etc...'
     @default_project = gets.chomp
+    first_hello
+  end
+
+  # Save new config to config file
+  def save_config
+
+  end
+
+  # Say hello for the 1st time!
+  def first_hello
     puts '-------------------------------------------------------------------'
     puts "Welcome again #{@nickname}. Now you can start using Ruby timer app."
     puts 'By the way. Your config file is stored there:'
