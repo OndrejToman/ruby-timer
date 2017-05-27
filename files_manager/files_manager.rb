@@ -1,26 +1,19 @@
 # Class for managing files
 class FilesManager
-  def initialize(name)
-    @name = name
+
+  attr_reader :file, :absolute_adress
+  def initialize(name_of_file)
+    @name = name_of_file
+    @path = Dir.pwd
+    @absolute_adress = "#{@path}/#{@name}"
+    @file = File.read(@absolute_adress) if File.exist?(@absolute_adress)
   end
 
-  def open_file
-    if exist_file
-      @file = File.new('name')
-      return @file
+  def exist?
+    if File.file?(@absolute_adress)
+      TRUE
     else
-      return false
-    end
-  end
-
-  # Finds if file exists or not
-  # Exist => return TRUE
-  # DOesn't exist => return FALSE
-  def exist_file
-    if File.exist?(@name)
-      return true
-    else
-      return false
+      FALSE
     end
   end
 end
