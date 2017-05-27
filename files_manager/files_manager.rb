@@ -11,9 +11,9 @@ class FilesManager
 
   def exist?
     if File.file?(@absolute_adress)
-      TRUE
+      true
     else
-      FALSE
+      false
     end
   end
 end
