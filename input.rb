@@ -9,6 +9,9 @@ class Input
   end
 
   def handele_input(input)
+    if input == 'are_you_a_batman?'
+      require_relative 'batcave/check'
+    end
     puts "You wrote #{input}"
   end
 end
