@@ -9,9 +9,13 @@ class Input
   end
 
   def handele_input(input)
-    if input == 'are_you_the_batman?'
+    command = Unwrap.new(input)
+    if command.first == 'are_you_the_batman?'
       require_relative 'batcave/check'
+    else
+      puts "First command: #{command.first}"
+      puts "Second command: #{command.second}"
+      puts "Third command: #{command.third}"
     end
-    puts "You wrote #{input}"
   end
 end

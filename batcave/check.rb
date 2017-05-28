@@ -8,7 +8,7 @@ class String
 end
 
 # input string with adress to folder you want to write
-print 'Yeah... Enter a dir, you want to CHECK!'
+puts 'Yeah... Enter a dir, you want to CHECK!'
 folder = String(gets.chomp)
 log = Array.new
 
