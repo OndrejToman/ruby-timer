@@ -13,6 +13,7 @@ class Input
     if command.first == 'are_you_the_batman?'
       require_relative 'batcave/check'
     else
+      database = DataController.new
       puts "First command: #{command.first}"
       puts "Second command: #{command.second}"
       puts "Third command: #{command.third}"
